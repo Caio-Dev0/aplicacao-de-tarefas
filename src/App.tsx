@@ -24,12 +24,6 @@ function App() {
 
   return (
     <>
-    <header className="task-app__header">
-        <div className="task-app__title-wrapper">
-            <h1>Aura List</h1>
-        </div>
-    </header>
-
     <form className="task-form" onSubmit={handleSubmitForm}>
             <input className='task-form__input' value={nameTask} onChange={(e) => setNameTask(e.currentTarget.value)} type="text" aria-label="Adicione o nome de sua tarefa"/>
             <input type="submit" className="task-form__button" value="Adicionar tarefa"/>

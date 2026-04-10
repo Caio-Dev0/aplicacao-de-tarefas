@@ -22,6 +22,10 @@ function App() {
     setNameTask("")
   }
 
+  function handleDeleteTask(id: number): void{
+    setTasks(prev => prev.filter(task => task.id !== id))
+  }
+
   return (
     <>
     <form className="task-form" onSubmit={handleSubmitForm}>
@@ -29,7 +33,7 @@ function App() {
             <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
     </form>
 
-    <Home tasks={tasks}/>
+    <Home tasks={tasks} handleDeleteTask={handleDeleteTask}/>
 
     </>
   )

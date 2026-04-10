@@ -11,7 +11,8 @@ export interface Task{
 function App() {
   const [nameTask, setNameTask] = useState<string>("")
   const [tasks, setTasks] = useState<Task[]>([])
-
+  const [modal, setModal] =useState<boolean>(false)
+  const [editName, setEditName] = useState<string>("")
 
   function handleSubmitForm(e: any): void{
     e.preventDefault()
@@ -24,6 +25,11 @@ function App() {
 
   function handleDeleteTask(id: number): void{
     setTasks(prev => prev.filter(task => task.id !== id))
+    
+  }
+
+  function handleEditTask(): void{
+    setModal(prev => !prev)
   }
 
   return (
@@ -33,7 +39,7 @@ function App() {
             <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
     </form>
 
-    <Home tasks={tasks} handleDeleteTask={handleDeleteTask}/>
+    <Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask}/>
 
     </>
   )

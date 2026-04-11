@@ -25,11 +25,17 @@ function App() {
 
   function handleDeleteTask(id: number): void{
     setTasks(prev => prev.filter(task => task.id !== id))
+    setModal(false)
     
   }
 
-  function handleEditTask(): void{
+  function handleEditTask(nameTask: string): void{
+    setEditName(nameTask)
     setModal(prev => !prev)
+  }
+
+  function handleChangeTask(nameTask: string): void{
+    setEditName(nameTask)
   }
 
   return (
@@ -39,7 +45,7 @@ function App() {
             <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
     </form>
 
-    <Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask}/>
+    <Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editName={editName} handleChangeTask={handleChangeTask}/>
 
     </>
   )

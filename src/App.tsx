@@ -12,7 +12,7 @@ function App() {
   const [nameTask, setNameTask] = useState<string>("")
   const [tasks, setTasks] = useState<Task[]>([])
   const [modal, setModal] =useState<boolean>(false)
-  const [editName, setEditName] = useState<string>("")
+  const [taskEdit, setTaskEdit] = useState<Task | null> (null)
 
   function handleSubmitForm(e: any): void{
     e.preventDefault()
@@ -26,16 +26,26 @@ function App() {
   function handleDeleteTask(id: number): void{
     setTasks(prev => prev.filter(task => task.id !== id))
     setModal(false)
-    
   }
 
-  function handleEditTask(nameTask: string): void{
-    setEditName(nameTask)
-    setModal(prev => !prev)
+  function handleEditTask(idTask: number, nameTask: string): void{
+    setTaskEdit({id: idTask, name: nameTask})
+    setModal(true)
   }
 
   function handleChangeTask(nameTask: string): void{
-    setEditName(nameTask)
+    setTaskEdit({id: taskEdit!.id, name: nameTask})
+  }
+
+ 
+
+  function handleUpdateTasks(tasks: Task[]){
+    setTasks(tasks)
+    setModal(false)
+  }
+
+  function handleCloseModal(): void{
+    setModal(false)
   }
 
   return (
@@ -45,7 +55,7 @@ function App() {
             <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
     </form>
 
-    <Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editName={editName} handleChangeTask={handleChangeTask}/>
+    <Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal}/>
 
     </>
   )

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './home'
 
@@ -10,9 +10,13 @@ export interface Task{
 
 function App() {
   const [nameTask, setNameTask] = useState<string>("")
-  const [tasks, setTasks] = useState<Task[]>([])
+   const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") ?? "[]"))
   const [modal, setModal] =useState<boolean>(false)
   const [taskEdit, setTaskEdit] = useState<Task | null> (null)
+
+  useEffect(() =>{
+    localStorage.setItem("tasks", JSON.stringify(tasks))
+  }, [tasks])
 
   function handleSubmitForm(e: any): void{
     e.preventDefault()
@@ -36,8 +40,6 @@ function App() {
   function handleChangeTask(nameTask: string): void{
     setTaskEdit({id: taskEdit!.id, name: nameTask})
   }
-
- 
 
   function handleUpdateTasks(tasks: Task[]){
     setTasks(tasks)

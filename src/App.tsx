@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './home'
 import FormTask from './formTask'
-
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 export interface Task{
   id: number,
   name: string
@@ -14,6 +14,7 @@ function App() {
    const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") ?? "[]"))
   const [modal, setModal] =useState<boolean>(false)
   const [taskEdit, setTaskEdit] = useState<Task | null> (null)
+ 
 
   useEffect(() =>{
     localStorage.setItem("tasks", JSON.stringify(tasks))
@@ -26,6 +27,7 @@ function App() {
     }
     setTasks(e => [...e, {id: tasks.length + 1, name: nameTask}])
     setNameTask("")
+
   }
 
   function handleDeleteTask(id: number): void{
@@ -56,12 +58,18 @@ function App() {
   }
 
   return (
+    <BrowserRouter>
     <>
-    <FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask}/>
-
-    <Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal}/>
-
+    
+    
     </>
+    <Routes>
+      <Route path='/' element={<Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal}/>
+}></Route>
+      <Route path='/formTask' element={<FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask}/>
+}></Route>
+    </Routes>
+    </BrowserRouter>
   )
 }
 

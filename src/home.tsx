@@ -1,4 +1,5 @@
-    import type { Task } from "./App"
+import { Link } from "react-router-dom"
+import type { Task } from "./App"
 
     function Home({tasks, handleDeleteTask, modal, handleEditTask, editTask, handleChangeTask, handleUpdateTasks, handleCloseModal}: {tasks: Task[], handleDeleteTask(id: number): void, modal: boolean, handleEditTask(taskId: number, editName: string): void,editTask: {name: string, id: number},  handleChangeTask(editName: string): void, handleUpdateTasks(tasks: Task[]): void, handleCloseModal(): void}){
 
@@ -25,7 +26,7 @@
                     }}>Atualizar</button>
                     <button className="modal-edit__button--cancel modal-edit__button" onClick={handleCloseModal}>Cancelar</button>
                 </div> </>}
-        
+        <Link to={"/formTask"} className="link-form">+</Link>
         </>
         )
     }

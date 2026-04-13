@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import Home from './home'
+import FormTask from './formTask'
 
 export interface Task{
   id: number,
@@ -50,12 +51,13 @@ function App() {
     setModal(false)
   }
 
+  function handleSaveNameTask(e: string){
+    setNameTask(e)
+  }
+
   return (
     <>
-    <form className="task-form" onSubmit={handleSubmitForm}>
-            <input className='task-form__input' value={nameTask} onChange={(e) => setNameTask(e.currentTarget.value)} type="text" aria-label="Adicione o nome de sua tarefa"/>
-            <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
-    </form>
+    <FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask}/>
 
     <Home tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal}/>
 

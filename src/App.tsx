@@ -3,6 +3,7 @@ import './App.css'
 import Home from './home'
 import FormTask from './formTask'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 export interface Task{
   id: number,
   name: string
@@ -11,7 +12,7 @@ export interface Task{
 
 function App() {
   const [nameTask, setNameTask] = useState<string>("")
-   const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") ?? "[]"))
+  const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") ?? "[]"))
   const [modal, setModal] =useState<boolean>(false)
   const [taskEdit, setTaskEdit] = useState<Task | null> (null)
  

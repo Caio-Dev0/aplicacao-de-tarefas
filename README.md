@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# 📘 Gerenciador de Tarefas
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🧩 Sobre o projeto
 
-Currently, two official plugins are available:
+O Gerenciador de Tarefas é uma aplicação web desenvolvida como projeto do curso DEVstart para organizar tarefas do dia a dia. O usuário pode adicionar, excluir e editar suas tarefas, com as informações salvas automaticamente no navegador através do LocalStorage.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A interface é simples, minimalista e responsiva, podendo ser usada tanto em computadores quanto em tablets e celulares.
 
-## React Compiler
+## 🎯 Objetivo do projeto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto tem como foco:
 
-## Expanding the ESLint configuration
+- Reforçar fundamentos de React e TypeScript
+- Aplicar boas práticas de código limpo
+- Separar as responsabilidades do código em componentes React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tecnologias utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- React Router Dom
+- TypeScript
+- Vite
+- CSS
+- Git & GitHub
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📁 Estrutura de pastas
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+📂 gerenciador-tarefas/
+├── 📂 public/
+├── 📂 src/
+│   ├── 📜 App.tsx
+│   ├── 📜 formTask.tsx
+│   ├── 📜 home.tsx
+│   ├── 📜 main.tsx
+│   ├── 📜 index.css
+│   ├── 📜 App.css
+│   └── 📂 assets/
+├── 📜 index.html
+├── 📜 package.json
+├── 📜 tsconfig.json
+├── 📜 tsconfig.app.json
+├── 📜 tsconfig.node.json
+├── 📜 vite.config.ts
+├── 📜 eslint.config.js
+└── 📜 README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Como executar o projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone este repositório:
+   ```
+   git clone https://github.com/SeuUsuario/gerenciador-tarefas
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Instale as dependências:
+   ```
+   npm install
+   ```
+
+3. Execute o projeto em modo de desenvolvimento:
+   ```
+   npm run dev
+   ```
+
+4. Abra o navegador e acesse o endereço fornecido pelo Vite (geralmente http://localhost:5173).
+
+## 📋 Funcionalidades principais
+
+- ✅ Adicionar tarefas
+- ✅ Remover tarefas
+- ✅ Editar tarefas
+- ✅ Validação para impedir tarefas vazias
+- ✅ Armazenamento local (localStorage)
+- ✅ Interface minimalista e responsiva
+
+## 🧠 Aprendizados
+
+- Manipulação de estado e props em React
+- Uso de hooks como useState e useEffect
+- Organização do código em componentes reutilizáveis
+- Aplicação de armazenamento local com localStorage
+- Criação de layout responsivo com CSS
+- Separação de responsabilidades em componentes React
+- Boas práticas de TypeScript
+- Uso de Vite para desenvolvimento rápido
+
+

@@ -13,15 +13,16 @@ O projeto tem como foco:
 - Reforçar fundamentos de React e TypeScript
 - Aplicar boas práticas de código limpo
 - Separar as responsabilidades do código em componentes React
+- Tipar dados com Typescript 
+- Reforçar o uso de rotas para diferentes componentes com React Router
 
 ## 🚀 Tecnologias utilizadas
 
-- React
-- React Router Dom
-- TypeScript
-- Vite
-- CSS
-- Git & GitHub
+- Core: React + TypeScript
+- Roteamento: React Router Dom
+- Build Tool: Vite 
+- Estilização: CSS3 
+- Linter: ESLint 
 
 ## 📁 Estrutura de pastas
 
@@ -80,9 +81,20 @@ O projeto tem como foco:
 - Uso de hooks como useState e useEffect
 - Organização do código em componentes reutilizáveis
 - Aplicação de armazenamento local com localStorage
+- Configuração de rotas com React Router 
 - Criação de layout responsivo com CSS
 - Separação de responsabilidades em componentes React
-- Boas práticas de TypeScript
+- Tipagem de dados com Typescript
 - Uso de Vite para desenvolvimento rápido
 
+## 💡 Nota
+Este projeto foi desenvolvido como entrega do curso DEVstart, focando nos requisitos propostos. Se quiser ver uma versão mais robusta com novas features, confira o <a href="https://github.com/Caio-Dev0/aura-list-v2" target="_blank">Aura List</a>
 
+
+## 👨‍💻 Autor
+
+Feito com 💙 por **Caio Lucas**
+
+
+🔗 [GitHub](https://github.com/caio-dev0)
+💼 [LinkedIn](https://www.linkedin.com/in/caio-dev0/)
